@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Website Name &dash; Game Catalog</title>
+        <link rel="stylesheet" href="/extra/style.css"/>
+    </head>
+    <body>
+        <main>
+            <div class="header">
+                <h1>Catalog</h1>
+                <div class="search_bar">
+                    <input type="text" id="sbar" placeholder="Filter games" onkeyup="search()"/>
+                </div>
+            </div>
+            <div class="content">
+                <ul>
+                    <li>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <a href=""></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="end">
+                <a href="http://github.com/DuncanKoji/hellos/">Made with Hellos</a><br/>
+                Copyright Website name &copy; <span id="year"></span> all rights reserved
+            </div>
+            <script defer>
+                window.onload = function() {
+                    var d, y, yid;
 
+                    d = new Date();
+                    y = d.getFullYear();
+                    yid = "year";
+                    
+                    document.getElementById(yid).innerHTML = y;
+                }
+
+                function myFunction() {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+
+                    for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                        if (td) {
+                            txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+          </script>
+        </main>
+    </body>
+</html>
